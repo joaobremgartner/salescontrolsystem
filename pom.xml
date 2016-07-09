@@ -26,6 +26,13 @@
 
 		<junit4.version>4.12</junit4.version>
 		<javax.version>3.1.0</javax.version>
+		<joda.version>2.9.4</joda.version>
+		<springMvc.version>4.3.0.RELEASE</springMvc.version>
+		<springws.version>2.3.0.RELEASE</springws.version>
+		<slf4j.version>1.7.21</slf4j.version>
+		<commons-lang3.version>3.4</commons-lang3.version>
+		<wsdl4j.version>1.6.3</wsdl4j.version>
+		<log4j.version>1.2.17</log4j.version>
 
 		<!-- other plugin versions -->
 		<version.compiler.plugin>3.5.1</version.compiler.plugin>
@@ -43,6 +50,79 @@
 				<groupId>javax.servlet</groupId>
 				<artifactId>javax.servlet-api</artifactId>
 				<version>${javax.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>joda-time</groupId>
+				<artifactId>joda-time</artifactId>
+				<version>${joda.version}</version>
+			</dependency>
+			<!-- Spring - INICIO -->
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-webmvc</artifactId>
+				<version>${springMvc.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-context</artifactId>
+				<version>${springMvc.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-core</artifactId>
+				<version>${springMvc.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework.ws</groupId>
+				<artifactId>spring-ws-core</artifactId>
+				<version>${springws.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-test</artifactId>
+				<version>${springMvc.version}</version>
+				<scope>test</scope>
+			</dependency>
+			<!-- Spring - FIM -->
+			
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-api</artifactId>
+				<version>${slf4j.version}</version>
+			</dependency>
+			
+			<dependency>
+				<groupId>log4j</groupId>
+				<artifactId>log4j</artifactId>
+				<version>${log4j.version}</version>
+			</dependency>
+		
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>jcl-over-slf4j</artifactId>
+				<version>${slf4j.version}</version>
+			</dependency>
+			
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-log4j12</artifactId>
+				<version>${slf4j.version}</version>
+			</dependency>
+		
+			<dependency>
+				<groupId>org.apache.commons</groupId>
+				<artifactId>commons-lang3</artifactId>
+				<version>${commons-lang3.version}</version>
+			</dependency>
+			
+			<dependency>
+				<groupId>wsdl4j</groupId>
+				<artifactId>wsdl4j</artifactId>
+				<version>${wsdl4j.version}</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
