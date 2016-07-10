@@ -1,0 +1,21 @@
+*.class
+
+# Package Files #
+*.jar
+*.war
+
+# virtual machine crash logs
+hs_err_pid*
+
+# Eclipse
+.settings/
+bin/
+tmp/
+.metadata
+*.tmp
+*.bak
+.project
+.classpath
+
+# Maven
+target/
