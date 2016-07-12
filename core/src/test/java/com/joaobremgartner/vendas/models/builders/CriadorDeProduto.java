@@ -38,7 +38,6 @@ public class CriadorDeProduto {
 		fornecedores.add(fornecedor);
 		
 		produto.setFornecedores(fornecedores);
-		//Fornecedor depois...
 		
 		return produto;
 	}
