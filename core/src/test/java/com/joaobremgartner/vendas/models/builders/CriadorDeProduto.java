@@ -27,11 +27,13 @@ public class CriadorDeProduto {
 		ArrayList<Fornecedor> fornecedores = new ArrayList<>();
 		
 		produto.setId(id);
+		produto.setCodProduto("PRD-0012016");
 		produto.setNmProduto(nome);
 		produto.setVlrVenda(valorVenda);
 		produto.setVlrCusto(valorCusto);
 		produto.setMinEstoque(1);
-		produto.setMaxEstoque(qtd);
+		produto.setMaxEstoque(100);
+		produto.setEstoque(qtd);
 		// Adicionando categoria fixa de produtos (para testes)
 		// Caso haja alteração no valor da categoria, terá que mudar também na classe de testes 
 		produto.setCategoria(CategoriaProduto.COSMETICOS);

@@ -1,6 +1,7 @@
 package com.joaobremgartner.vendas.models;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -8,6 +9,7 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.joaobremgartner.vendas.enums.TPPessoa;
 import com.joaobremgartner.vendas.models.builders.CriadorDeProduto;
 
 public class ProdutoTest {
@@ -56,5 +58,30 @@ public class ProdutoTest {
 	public void deveRetornarCategoriaComoDescricao() {
 		String categoria = "Cosméticos";
 		assertEquals(categoria, this.produto.getCategoria().getDescricao());
+	}
+	
+	@Test
+	public void deveRetornarAqtdEmEstoque() {
+		int estoqueAtual = 2;
+		assertEquals(estoqueAtual, this.produto.getEstoque().intValue());
+	}
+	
+	@Test
+	public void deveRetornarCodProdutoPadrao() {
+		String codigo = "PRD-0012016";
+		assertEquals(codigo, this.produto.getCodProduto());
+	}
+	
+	@Test
+	public void deveRetornarInfoFornecedor() {
+		int vazio = 0;
+		String nmFornecedor = "João Faro";
+		String cpfFornecedor = "123.456.789-00";
+		Enum<TPPessoa> tpFornecedor = TPPessoa.FISICA; 
+		
+		assertEquals(nmFornecedor, this.produto.getFornecedores().iterator().next().getNmFornecedor());
+		assertEquals(cpfFornecedor, this.produto.getFornecedores().iterator().next().getCpfCnpj());
+		assertEquals(tpFornecedor, this.produto.getFornecedores().iterator().next().getTipo());
+		assertNotEquals(vazio , this.produto.getFornecedores().size());
 	}
 }
