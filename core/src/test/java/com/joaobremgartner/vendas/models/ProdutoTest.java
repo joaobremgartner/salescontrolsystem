@@ -25,10 +25,13 @@ public class ProdutoTest {
 	
 	@Test
 	public void deveRetornarUmProdutoCadastrado() {
-		String nomeProduto = "Batom";
-		BigDecimal vlrVenda = new BigDecimal(40.0);
-		BigDecimal vlrCusto = new BigDecimal(20.0);
+		// Cadastrando novo produto
 		Long id = 1L;
+		String nomeProduto = "Batom";
+		// Atribuindo valor de venda ao produto
+		BigDecimal vlrVenda = new BigDecimal(40.0);
+		// Atribuindo valor de custo ao produto
+		BigDecimal vlrCusto = new BigDecimal(20.0);
 		
 		assertEquals(nomeProduto, this.produto.getNmProduto());
 		assertEquals(vlrVenda, this.produto.getVlrVenda());
@@ -39,7 +42,9 @@ public class ProdutoTest {
 	@Test
 	public void deveRetornarUmaListaDeProdutos() {
 		int tamanho = 6;
+		// teste da primeira forma de representar um long
 		Long idDoPrimeiro = 1L;
+		// teste da segunda forma de representar um long
 		Long idDoSegundo = new Long(2);
 		
 		assertEquals(tamanho, this.produtos.size());

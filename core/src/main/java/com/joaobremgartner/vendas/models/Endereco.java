@@ -2,6 +2,21 @@ package com.joaobremgartner.vendas.models;
 
 import java.io.Serializable;
 
+/**
+ * <p>
+ * Classe modelo resposável por tratar o objeto {@code Endereco}
+ * </p>
+ * 
+ * @author Engº. João Paulo Bremgartner Faro - CREA: 27708D-PA
+ * 
+ * @see
+ * 		Cliente
+ * @since
+ * 		1.8
+ * @version
+ * 		1.0.0
+ *
+ */
 public class Endereco implements Serializable{
 
 	private static final long serialVersionUID = 7461248279471245975L;

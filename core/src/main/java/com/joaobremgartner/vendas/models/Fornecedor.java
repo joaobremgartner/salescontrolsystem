@@ -5,6 +5,23 @@ import java.util.List;
 
 import com.joaobremgartner.vendas.enums.TPPessoa;
 
+/**
+ * <p>
+ * Classe modelo para representar o objeto {@code Fornecedor}.
+ * </p>
+ * 
+ * @author Engº. João Paulo Bremgartner Faro - CREA: 27708D-PA
+ *
+ * @see
+ * 		TPPessoa
+ * @see
+ * 		Endereco
+ * 
+ * @since
+ * 		1.8
+ * @version
+ * 		1.0.0
+ */
 public class Fornecedor implements Serializable{
 
 	private static final long serialVersionUID = -4966492484551296585L;

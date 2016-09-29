@@ -7,6 +7,25 @@ import java.util.List;
 
 import com.joaobremgartner.vendas.enums.CondicaoPagamento;
 
+/**
+ * <p>
+ * Classe modelo para representar o objeto {@code Venda}.
+ * </p>
+ * 
+ * @author Engº. João Paulo Bremgartner Faro - CREA: 27708D-PA
+ *
+ * @see
+		Vendedor
+ * @see
+ * 		Produto
+ * @see
+ * 		Cliente
+ * 
+ * @since
+ * 		1.8
+ * @version
+ * 		1.0.0
+ */
 public class Venda implements Serializable {
 
 	private static final long serialVersionUID = 8663138252677851271L;

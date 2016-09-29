@@ -6,6 +6,23 @@ import java.util.List;
 
 import com.joaobremgartner.vendas.enums.CategoriaProduto;
 
+/**
+ * <p>
+ * Classe modelo para representar o objeto {@code Produto}.
+ * </p>
+ * 
+ * @author Engº. João Paulo Bremgartner Faro - CREA: 27708D-PA
+ *
+ * @see
+ * 		CategoriaProduto
+ * @see
+ * 		Fornecedor
+ * 
+ * @since
+ * 		1.8
+ * @version
+ * 		1.0.0
+ */
 public class Produto implements Serializable{
 
 	private static final long serialVersionUID = -6366081186572236465L;

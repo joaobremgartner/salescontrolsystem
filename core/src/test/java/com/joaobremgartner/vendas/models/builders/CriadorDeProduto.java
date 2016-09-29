@@ -32,6 +32,8 @@ public class CriadorDeProduto {
 		produto.setVlrCusto(valorCusto);
 		produto.setMinEstoque(1);
 		produto.setMaxEstoque(qtd);
+		// Adicionando categoria fixa de produtos (para testes)
+		// Caso haja alteração no valor da categoria, terá que mudar também na classe de testes 
 		produto.setCategoria(CategoriaProduto.COSMETICOS);
 		
 		Fornecedor fornecedor = CriadorDeFornecedor.novoFornecedorPF(1L, "João Faro", "123.456.789-00", "1234567").criar();

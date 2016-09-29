@@ -2,6 +2,18 @@ package com.joaobremgartner.vendas.models;
 
 import java.io.Serializable;
 
+/**
+ * <p>
+ * Classe reponsável por representar o objeto {@code Vendedor}
+ * </p>
+ * 
+ * @author Engº. João Paulo Bremgartner Faro - CREA: 27708D-PA
+ * 
+ * @since
+ * 		1.8
+ * @version
+ * 		1.0.0
+ */
 public class Vendedor implements Serializable{
 
 	private static final long serialVersionUID = 7948606464098914282L;
