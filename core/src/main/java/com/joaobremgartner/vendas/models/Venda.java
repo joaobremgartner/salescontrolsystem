@@ -2,8 +2,9 @@ package com.joaobremgartner.vendas.models;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.time.LocalDate;
 import java.util.List;
+
+import org.joda.time.LocalDate;
 
 import com.joaobremgartner.vendas.enums.CondicaoPagamento;
 
