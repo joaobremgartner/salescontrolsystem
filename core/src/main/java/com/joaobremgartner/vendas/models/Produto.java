@@ -149,7 +149,6 @@ public class Produto implements Serializable{
 	
 	@Override
 	public String toString() {
-		return "Produto cadastrado: "+ id+", "+codProduto+", "+nmProduto;
+		return codProduto +" - "+ nmProduto+ "\n";
 	}
-	
 }
