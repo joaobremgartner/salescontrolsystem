@@ -23,6 +23,10 @@ public class Vendedor implements Serializable{
 	private String nmVendedor;
 	private String email;
 	
+	public Vendedor(String nome, String email) {
+		this.nmVendedor = nome;
+		this.email = email;
+	}
 	public Vendedor() {
 	}
 
