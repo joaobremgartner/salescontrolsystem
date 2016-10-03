@@ -9,9 +9,8 @@ public class TerceiroDesconto implements Desconto{
 	
 	@Override
 	public double desconta(Orcamento orcamento) {
-		double valorOrcamento = orcamento.getValorOrcamento().doubleValue();
-		if (valorOrcamento >= 700) {
-			return valorOrcamento * 0.30;
+		if (orcamento.getValorOrcamento().doubleValue() >= 700) {
+			return orcamento.getValorOrcamento().doubleValue() * 0.30;
 		}
 		return proximo.desconta(orcamento);
 	}
