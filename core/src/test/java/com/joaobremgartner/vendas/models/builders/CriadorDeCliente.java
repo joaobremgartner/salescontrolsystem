@@ -67,7 +67,7 @@ public class CriadorDeCliente {
 		cliente.setNmRazaoSocial("Empresa LTDA");
 		
 		// Cnpj ou CPF
-		if (tipo.name().equals(TPPessoa.FISICA)) {
+		if (tipo.equals(TPPessoa.FISICA)) {
 			cliente.setCpfCnpj("775.961.882-49");
 		}else {
 			cliente.setCpfCnpj("21.452.334/0001-57");

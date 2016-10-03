@@ -38,7 +38,7 @@ public class CriadorDeVenda {
 		
 		venda.setCliente(cliente);
 		venda.setNuControle(12345);
-		venda.setDtVenda(new LocalDate(2016, 12, 24));
+		venda.setDtVenda(dtVenda);
 		venda.setProdutos(produtos);
 		venda.setCondicaoPgto(formaPagto);
 		venda.setVlrTotal(vlrVenda);
