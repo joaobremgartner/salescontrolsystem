@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.joaobremgartner.vendas.calculos.CalculadoraDeDescontos;
+import com.joaobremgartner.vendas.enums.CondicaoPagamento;
 import com.joaobremgartner.vendas.enums.TPPessoa;
 import com.joaobremgartner.vendas.models.Cliente;
 import com.joaobremgartner.vendas.models.Orcamento;
@@ -22,7 +23,7 @@ public class DescontoLogTest {
 		ArrayList<Produto> produtos = new ArrayList<>();
 		produtos.add(produto);
 
-		Orcamento orcamento = new Orcamento(cliente, produtos, new BigDecimal(504.0));
+		Orcamento orcamento = new Orcamento(cliente, produtos, new BigDecimal(504.0), CondicaoPagamento.VISTA);
 
 		System.out.println(orcamento);
 
@@ -34,7 +35,7 @@ public class DescontoLogTest {
 		for (Produto prd : listaDeProdutos) {
 			total = total.add(prd.getVlrVenda());
 		}
-		Orcamento orcamento2 = new Orcamento(cliente, listaDeProdutos, total);
+		Orcamento orcamento2 = new Orcamento(cliente, listaDeProdutos, total, CondicaoPagamento.VISTA);
 		CalculadoraDeDescontos calculadoraDeDescontos = new CalculadoraDeDescontos();
 		
 		// Calculando descontos

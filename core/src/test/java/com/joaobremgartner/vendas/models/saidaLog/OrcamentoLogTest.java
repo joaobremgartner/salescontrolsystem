@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.joaobremgartner.vendas.enums.CondicaoPagamento;
 import com.joaobremgartner.vendas.enums.TPPessoa;
 import com.joaobremgartner.vendas.models.Cliente;
 import com.joaobremgartner.vendas.models.Orcamento;
@@ -21,7 +22,7 @@ public class OrcamentoLogTest {
 		ArrayList<Produto> produtos = new ArrayList<>();
 		produtos.add(produto);
 		
-		Orcamento orcamento = new Orcamento(cliente, produtos, new BigDecimal(50.0));
+		Orcamento orcamento = new Orcamento(cliente, produtos, new BigDecimal(50.0), CondicaoPagamento.VISTA);
 		
 		System.out.println(orcamento);
 		
@@ -35,7 +36,7 @@ public class OrcamentoLogTest {
 		for (Produto prd : listaDeProdutos) { 
 			total = total.add(prd.getVlrVenda());
 		}
-		Orcamento orcamento2 = new Orcamento(cliente, listaDeProdutos, total);
+		Orcamento orcamento2 = new Orcamento(cliente, listaDeProdutos, total, CondicaoPagamento.CHEQUE);
 		// Imprimindo resultado
 		System.out.println(orcamento2);
 	}
