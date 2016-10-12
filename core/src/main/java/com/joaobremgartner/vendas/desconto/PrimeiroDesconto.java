@@ -2,6 +2,7 @@ package com.joaobremgartner.vendas.desconto;
 
 import com.joaobremgartner.vendas.composicao.Desconto;
 import com.joaobremgartner.vendas.enums.CondicaoPagamento;
+import com.joaobremgartner.vendas.excecoes.ArgumentoNuloException;
 import com.joaobremgartner.vendas.models.Orcamento;
 
 /**
@@ -42,8 +43,13 @@ public class PrimeiroDesconto implements Desconto{
 	 */
 	@Override
 	public double desconta(Orcamento orcamento) {
+		if (orcamento == null) {
+				throw new ArgumentoNuloException("Problema no cálculo de desconto: Orçamento não pode ser nulo!");
+		}
+		
 		double valorOrcamento = orcamento.getValorOrcamento().doubleValue();
 		CondicaoPagamento condicaoPagamento = orcamento.getCondicao();
+		
 		if (valorOrcamento > 200.0 
 				&& condicaoPagamento.equals(CondicaoPagamento.VISTA)) {
 			return valorOrcamento * 0.05;

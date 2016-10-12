@@ -1,6 +1,7 @@
 package com.joaobremgartner.vendas.desconto;
 
 import com.joaobremgartner.vendas.composicao.Desconto;
+import com.joaobremgartner.vendas.excecoes.ArgumentoNuloException;
 import com.joaobremgartner.vendas.models.Orcamento;
 
 /**
@@ -39,6 +40,9 @@ public class SemDesconto implements Desconto{
 	 */
 	@Override
 	public double desconta(Orcamento orcamento) {
+		if (orcamento == null) {
+			throw new ArgumentoNuloException("Problema no cálculo de desconto: Orçamento não pode ser nulo!");
+		}
 		return 0;
 	}
 
