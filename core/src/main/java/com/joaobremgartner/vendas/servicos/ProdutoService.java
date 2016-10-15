@@ -1,6 +1,7 @@
 package com.joaobremgartner.vendas.servicos;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import com.joaobremgartner.vendas.composicao.DAO;
@@ -61,6 +62,10 @@ public class ProdutoService implements DAO<Produto>{
 	@Override
 	public int quantidadeExistente() {
 		return this.totalDeProdutos;
+	}
+	
+	public List<Produto> getProdutos() {
+		return Collections.unmodifiableList(this.produtos);
 	}
 
 }
