@@ -3,6 +3,19 @@ package com.joaobremgartner.vendas.models;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.Basic;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
 import com.joaobremgartner.vendas.enums.TPPessoa;
 
 /**
@@ -25,20 +38,54 @@ import com.joaobremgartner.vendas.enums.TPPessoa;
  * 		1.0.0
  *
  */
+@Entity
+@Table(name="cliente")
 public class Cliente implements Serializable{
 
 	private static final long serialVersionUID = -2857355706721017502L;
-
+	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	
+	@Basic(optional=false)
+	@Column(name="nm_cliente", length=100, unique=true, nullable=false)
 	private String nmCliente;
+	
+	@Basic(optional=false)
+	@Column(name="tp_pessoa", nullable=false)
+	@Enumerated(EnumType.STRING)
 	private TPPessoa tipo;
+	
+	@Basic(optional=false)
+	@Column(name="cpf_cnpj", length=20, unique=true, nullable=false)
 	private String cpfCnpj;
+	
+	@Basic(optional=true)
+	@Column(name= "nm_razaoSocial", length=50, unique=false)
 	private String nmRazaoSocial;
+	
+	@Basic(optional=true)
+	@Column(name="email", length=100, unique=true, nullable=true)
 	private String email;
+	
+	@Basic(optional=true)
+	@OneToMany
+	@JoinColumn(name="id_cliente")
 	private List<Telefone> telefones;
+	
+	@Basic(optional=true)
+	@Column(name="observacoes", length=255, unique=false, nullable=true)
 	private String observacoes;
+	
+	@Basic(optional=true)
+	@OneToMany
+	@JoinColumn(name="id_cliente")
 	private List<Contato> contatos;
+	
+	@Basic(optional=true)
+	@OneToOne
+	@JoinColumn(name="id_end")
 	private Endereco endereco;
 	
 	public Cliente() {

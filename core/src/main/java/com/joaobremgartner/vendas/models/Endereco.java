@@ -2,6 +2,13 @@ package com.joaobremgartner.vendas.models;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 /**
  * <p>
  * Classe modelo resposável por tratar o objeto {@code Endereco}
@@ -17,17 +24,32 @@ import java.io.Serializable;
  * 		1.0.0
  *
  */
+@Entity
+@Table(name="endereco")
 public class Endereco implements Serializable{
 
 	private static final long serialVersionUID = 7461248279471245975L;
-
+	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	
+	@Column(name="logradouro", length=60)
 	private String logradouro;
+	
+	@Column(name="numero")
 	private int numero;
+	
+	@Column(name="cep", length=9)
 	private String cep;
+	
+	@Column(name="complemento")
 	private String complemento;
+	
+	@Column(name="bairro")
 	private String bairro;
+	
+	@Column(name="cidade")
 	private String cidade;
 
 	public Endereco() {

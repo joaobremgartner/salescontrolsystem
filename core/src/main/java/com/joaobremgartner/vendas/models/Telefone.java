@@ -2,6 +2,16 @@ package com.joaobremgartner.vendas.models;
 
 import java.io.Serializable;
 
+import javax.persistence.Basic;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 import com.joaobremgartner.vendas.enums.TPTelefone;
 
 /**
@@ -25,13 +35,23 @@ import com.joaobremgartner.vendas.enums.TPTelefone;
  * 
  *
  */
+@Entity
+@Table(name="telefone")
 public class Telefone implements Serializable {
 
 	private static final long serialVersionUID = -4989383931401006914L;
 
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	
+	@Basic(optional=false)
+	@Column(name="n_telefone", nullable=true)
 	private String numero;
+	
+	@Basic(optional=false)
+	@Column(name="tp_telefone")
+	@Enumerated(EnumType.STRING)
 	private TPTelefone tipo;
 
 	public Telefone() {
