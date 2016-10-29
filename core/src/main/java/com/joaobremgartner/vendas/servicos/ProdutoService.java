@@ -47,10 +47,13 @@ public class ProdutoService implements DAO<Produto>{
 	public void remove(Long id) {
 		int idInteiro = id.intValue();
 		this.produtos.remove(idInteiro);
+		this.totalDeProdutos--;
 	}
 
 	@Override
 	public boolean existe(Produto object) {
+		// Com base no método equals da classe produto.
+		// Atualmente comparado pelo Id.
 		for (int i = 0; i < this.produtos.size(); i++) {
 			if (object.equals(this.produtos.get(i))) {
 				return true;
