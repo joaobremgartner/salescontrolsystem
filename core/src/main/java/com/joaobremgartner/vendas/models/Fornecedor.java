@@ -3,6 +3,19 @@ package com.joaobremgartner.vendas.models;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.Basic;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
 import com.joaobremgartner.vendas.enums.TPPessoa;
 
 /**
@@ -22,19 +35,51 @@ import com.joaobremgartner.vendas.enums.TPPessoa;
  * @version
  * 		1.0.0
  */
+@Entity
+@Table(name="fornecedor")
 public class Fornecedor implements Serializable{
 
 	private static final long serialVersionUID = -4966492484551296585L;
 	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	
+	@Basic(optional=false)
+	@Column(name="nm_fornecedor", length=100, nullable=false)
 	private String nmFornecedor;
+	
+	@Basic(optional=false)
+	@Column(name="tp_pessoa", nullable=false)
+	@Enumerated(EnumType.STRING)
 	private TPPessoa tipo;
+	
+	@Basic(optional=false)
+	@Column(name="cpf_cnpj", nullable=false, length=20, unique=true)
 	private String cpfCnpj;
+	
+	@Basic(optional=true)
+	@Column(name="rg_fornecedor", nullable=true, length=25)
 	private String rg;
+	
+	@Basic(optional=true)
+	@Column(name= "nm_razaoSocial", length=50, unique=false)
 	private String nmRazaoSocial;
+	
+	@Basic(optional=true)
+	@OneToOne
+	@Column(name="contato_fornecedor", nullable=true)
+	@JoinColumn(name="id_fornecedor")
 	private Contato contato;
+	
+	@Basic(optional=true)
+	@Column(name="obs_fornecedor", length=255, nullable=true)
 	private String observacoes;
+	
+	@OneToMany
+	@Basic(optional=true)
+	@Column(name="endereco", nullable=true)
+	@JoinColumn(name="id_fornecedor")
 	private List<Endereco> enderecos;
 
 	public Fornecedor() {

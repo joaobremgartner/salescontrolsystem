@@ -9,6 +9,9 @@
 	<class>com.joaobremgartner.vendas.models.Contato</class>
 	<class>com.joaobremgartner.vendas.models.Endereco</class>
 	<class>com.joaobremgartner.vendas.models.Telefone</class>
+	<class>com.joaobremgartner.vendas.models.Produto</class>
+	<class>com.joaobremgartner.vendas.models.Fornecedor</class>
+	<class>com.joaobremgartner.vendas.models.Vendedor</class>
 	<exclude-unlisted-classes>
 		true
 	</exclude-unlisted-classes>

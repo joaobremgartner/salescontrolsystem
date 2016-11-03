@@ -4,6 +4,18 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.List;
 
+import javax.persistence.Basic;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
 import com.joaobremgartner.vendas.enums.CategoriaProduto;
 
 /**
@@ -23,20 +35,52 @@ import com.joaobremgartner.vendas.enums.CategoriaProduto;
  * @version
  * 		1.0.0
  */
+@Entity
+@Table(name="produto")
 public class Produto implements Serializable{
 
 	private static final long serialVersionUID = -6366081186572236465L;
 	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	
+	@Basic(optional=false)
+	@Column(name="nm_produto", length=100, nullable=false)
 	private String nmProduto;
+	
+	@Basic(optional=false)
+	@Column(name="cd_produto", nullable=false, unique=true)
 	private String codProduto;
+	
+	@Basic(optional=false)
+	@Column(name="tp_produto", nullable=false)
+	@Enumerated(EnumType.STRING)
 	private CategoriaProduto categoria;
+	
+	@Basic(optional=false)
+	@Column(name="vlr_venda", nullable=false, scale=2)
 	private BigDecimal vlrVenda;
+	
+	@Basic(optional=false)
+	@Column(name="vlr_custo", nullable=false, scale=2)
 	private BigDecimal vlrCusto;
+	
+	@Basic(optional=false)
+	@Column(name="min_estoque", nullable=false)
 	private Integer minEstoque;
+	
+	@Basic(optional=false)
+	@Column(name="max_estoque", nullable=false)
 	private Integer maxEstoque;
+	
+	@Basic(optional=false)
+	@Column(name="estoque", nullable=false)
 	private Integer estoque;
+	
+	@Basic(optional=false)
+	@OneToMany
+	@JoinColumn(name="id_fornecedor")
 	private List<Fornecedor> fornecedores;
 	
 	public Produto() {
