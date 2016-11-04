@@ -12,6 +12,9 @@
 	<class>com.joaobremgartner.vendas.models.Produto</class>
 	<class>com.joaobremgartner.vendas.models.Fornecedor</class>
 	<class>com.joaobremgartner.vendas.models.Vendedor</class>
+	<class>com.joaobremgartner.vendas.models.Orcamento</class>
+	<class>com.joaobremgartner.vendas.models.Venda</class>
+	
 	<exclude-unlisted-classes>
 		true
 	</exclude-unlisted-classes>

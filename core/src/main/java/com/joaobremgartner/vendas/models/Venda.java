@@ -4,6 +4,19 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.List;
 
+import javax.persistence.Basic;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
 import org.joda.time.LocalDate;
 
 import com.joaobremgartner.vendas.enums.CondicaoPagamento;
@@ -27,20 +40,53 @@ import com.joaobremgartner.vendas.enums.CondicaoPagamento;
  * @version
  * 		1.0.0
  */
+@Entity
+@Table(name="vendas")
 public class Venda implements Serializable {
 
 	private static final long serialVersionUID = 8663138252677851271L;
 
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
-
+	
+	@Basic(optional=false)
+	@Column(name="nu_controle", nullable=false, unique=true, length=10)
 	private Integer nuControle;
+	
+	@Basic(optional=false)
+	@ManyToOne
+	@JoinColumn(name="id_cliente")
 	private Cliente cliente;
+	
 	private LocalDate dtVenda;
+	
+	@Basic(optional=true)
+	@Column(name="produto", nullable=true)
+	@OneToMany
+	@JoinColumn(name="id_venda")
 	private List<Produto> produtos;
+	
+	@Basic(optional=true)
+	@Column(name="obs_vendas", nullable=true, length=255)
 	private String observacoes;
+	
+	@Basic(optional=false)
+	@Column(name="tp_pagamento", nullable=false)
+	@Enumerated(EnumType.STRING)
 	private CondicaoPagamento condicaoPgto;
+	
+	@Basic(optional=false)
+	@Column(name="vlr_total", scale=2, nullable=false)
 	private BigDecimal vlrTotal;
+	
+	@Basic(optional=true)
+	@Column(name="vlr_desconto", scale=2, nullable=true)
 	private BigDecimal vlrDesconto;
+	
+	@ManyToOne
+	@Basic(optional=false)
+	@JoinColumn(name="id_vendedor")
 	private Vendedor responsavel;
 
 	public Venda() {

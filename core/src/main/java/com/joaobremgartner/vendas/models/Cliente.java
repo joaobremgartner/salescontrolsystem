@@ -88,6 +88,12 @@ public class Cliente implements Serializable{
 	@JoinColumn(name="id_end")
 	private Endereco endereco;
 	
+	@Basic(optional=true)
+	@Column(name="venda", nullable=true)
+	@OneToMany(mappedBy="cliente")
+	@JoinColumn(name="id_cliente")
+	private List<Venda> vendas;
+	
 	public Cliente() {
 	}
 
@@ -165,6 +171,14 @@ public class Cliente implements Serializable{
 
 	public Long getId() {
 		return id;
+	}
+
+	public List<Venda> getVendas() {
+		return vendas;
+	}
+
+	public void setVendas(List<Venda> vendas) {
+		this.vendas = vendas;
 	}
 
 	@Override

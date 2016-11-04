@@ -1,6 +1,7 @@
 package com.joaobremgartner.vendas.models;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -8,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -40,6 +42,10 @@ public class Vendedor implements Serializable{
 	@Column(name="email_vendedor", nullable=false, length=100, unique=true)
 	private String email;
 	
+	@Basic(optional=true)
+	@OneToMany(mappedBy="responsavel")
+	private List<Venda> vendas;
+	
 	public Vendedor(String nome, String email) {
 		this.nmVendedor = nome;
 		this.email = email;
@@ -67,6 +73,13 @@ public class Vendedor implements Serializable{
 		return id;
 	}
 
+	public List<Venda> getVendas() {
+		return vendas;
+	}
+	public void setVendas(List<Venda> vendas) {
+		this.vendas = vendas;
+	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
