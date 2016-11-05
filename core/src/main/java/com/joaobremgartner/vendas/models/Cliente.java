@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -84,7 +85,7 @@ public class Cliente implements Serializable{
 	private List<Contato> contatos;
 	
 	@Basic(optional=true)
-	@OneToOne
+	@OneToOne(cascade=CascadeType.PERSIST)
 	@JoinColumn(name="id_end")
 	private Endereco endereco;
 	
