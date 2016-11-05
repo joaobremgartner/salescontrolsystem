@@ -5,6 +5,8 @@
 	<persistence-unit name="controle-vendas" transaction-type="JTA">
 	<provider>org.hibernate.ejb.HibernatePersistence</provider>
 	
+	<jta-data-source>java:comp/env/jdbc/CDVendasDS</jta-data-source>
+	
 	<class>com.joaobremgartner.vendas.models.Cliente</class>
 	<class>com.joaobremgartner.vendas.models.Contato</class>
 	<class>com.joaobremgartner.vendas.models.Endereco</class>
@@ -19,7 +21,13 @@
 		true
 	</exclude-unlisted-classes>
 	
-	
+	<properties>
+		<!-- Configurações específicas do Hibernate com MySQL -->
+			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect" />
+			<property name="hibernate.hbm2ddl.auto" value="update" />
+			<property name="hibernate.show_sql" value="true" />
+			<property name="hibernate.format_sql" value="true" />
+	</properties>
 	
 	</persistence-unit>
 </persistence>
